@@ -9,6 +9,8 @@
   "author": "Alvin Loh",
   "license": "ISC",
   "dependencies": {
+    "async": "^2.6.2",
+    "dotenv": "^7.0.0",
     "mongoose": "^5.4.20"
   }
 }
