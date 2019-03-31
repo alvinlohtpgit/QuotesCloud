@@ -18,6 +18,10 @@ module.exports = function (context, req) {
         if ((!payLoad.message) || (payLoad.message == '')){
             context.res = {
                 status: 400,
+                headers: {
+                    "Content-Type": "text/plain",
+                    "Access-Control-Allow-Origin": "*"
+                },
                 body: "Please enter the message for the quote"
             }
             context.done();
@@ -76,7 +80,11 @@ module.exports = function (context, req) {
                         mongoose.connection.close();
 
                         context.res = {
-                            status: 200,
+                            status: 200,       
+                            headers: {
+                                "Content-Type": "text/plain",
+                                "Access-Control-Allow-Origin": "*"
+                            },                   
                             body: "Quote Saved with ID " + result.id
                         };
                         context.done();
@@ -92,6 +100,10 @@ module.exports = function (context, req) {
         // Just return a 404
         context.res = {
             status: 400, /* Defaults to 200 */
+            headers: {
+                "Content-Type": "text/plain",
+                "Access-Control-Allow-Origin": "*"
+            },
             body: "Please input a valid Quote payload"
         };
         context.done();
